@@ -23,7 +23,6 @@ public class ExtentReportHelper
         _extentManager.AddSystemInfo("Host Name", hostName);
         _extentManager.AddSystemInfo("Environment", environment);
         _extentManager.AddSystemInfo("Browser", browser);
-        Console.WriteLine("Initialize report");
     }
 
     public static void Flush()
@@ -129,5 +128,4 @@ public class ExtentReportHelper
         var screenshot = screenshotDriver.GetScreenshot().AsBase64EncodedString;
         return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot, screenShotName).Build();
     }
-
 }

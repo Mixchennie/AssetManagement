@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumPractice.Utils;
 
+namespace AssetManagementTest.Core.Element;
 public static class WebObjectExtensions
 {
     private static WebDriverWait Wait => new WebDriverWait(BrowserFactory.GetWebDriver(),
@@ -97,6 +98,13 @@ public static class WebObjectExtensions
     {
         var elements = BrowserFactory.GetWebDriver().FindElements(webObject.By);
         return elements;
+    }
+
+    public static List<WebObject> GetWebObjects(this WebObject webObject)
+    {
+        var elements = BrowserFactory.GetWebDriver().FindElements(webObject.By);
+        var webObjectsList = elements.Select(element => new WebObject(webObject.By, webObject.Name)).ToList();
+        return webObjectsList;
     }
 
     public static bool VerifyColumnContainsKeyword(this WebObject columnCells, string keyword)

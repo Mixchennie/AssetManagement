@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace SeleniumPractice.Utils
+namespace AssetManagementTest.Helper
 {
     public static class JsonDataReader
     {

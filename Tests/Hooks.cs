@@ -10,6 +10,7 @@ namespace SeleniumPractice.Tests
         {
             TestContext.Progress.WriteLine("OneTimeSetUp: Initializing WebDriver and navigating to URL.");
             ConfigurationUtils.ReadConfiguration("Configurations\\appsettings.json");
+            
             ExtentReportHelper.InitializeReport(Directory.GetCurrentDirectory() + "\\Reports\\TestReport.html"
                 , ConfigurationUtils.GetConfigurationByKey("HostName")
                 , ConfigurationUtils.GetConfigurationByKey("Environment")

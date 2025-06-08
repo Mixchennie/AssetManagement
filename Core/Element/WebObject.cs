@@ -1,5 +1,7 @@
+
 using OpenQA.Selenium;
 
+namespace AssetManagementTest.Core.Element;
 public class WebObject
 {
     public By By { get; set; }

@@ -10,11 +10,11 @@ namespace SeleniumPractice.Tests
             TestContext.Progress.WriteLine("Setup: Initializing WebDriver, Maximize Window, and Extent Report.");
 
             BrowserFactory.InitializeDriver(ConfigurationUtils.GetConfigurationByKey("Browser"));
-            
+            DriverUtils.MaximizeWindow();
+            DriverUtils.GoToUrl(ConfigurationUtils.GetConfigurationByKey("SearchBookUrl"));
+
             ExtentReportHelper.CreateTest(TestContext.CurrentContext.Test.Name);
             ExtentReportHelper.CreateNode(TestContext.CurrentContext.Test.Name);
-            
-            DriverUtils.MaximizeWindow();
         }
 
         [TearDown]
