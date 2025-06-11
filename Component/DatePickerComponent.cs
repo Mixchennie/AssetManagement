@@ -114,6 +114,24 @@ namespace AssetManagement.Component
             SelectDay(targetDate);
         }
 
+        public static void SetReactDatePicker(string dateString)
+        {
+            var targetDate = DateTime.ParseExact(dateString, "d MMMM yyyy", CultureInfo.InvariantCulture);
+            string year = targetDate.Year.ToString();
+            string month = targetDate.ToString("MMMM", CultureInfo.InvariantCulture);
+            string day = targetDate.Day.ToString();
+
+            var yearSelect = new WebObject(By.CssSelector(".react-datepicker__year-select"), "YearSelect");
+            yearSelect.SelectDropdownByText(year);
+
+            var monthSelect = new WebObject(By.CssSelector(".react-datepicker__month-select"), "MonthSelect");
+            monthSelect.SelectDropdownByText(month);
+
+            string dayXpath = $"//div[contains(@class,'react-datepicker__day') and not(contains(@class,'--outside-month')) and text()='{day}']";
+            var dayElem = new WebObject(By.XPath(dayXpath), "DayButton");
+            dayElem.ClickOnElement();
+        }
+
         public string GetSelectedDateValue()
         {
             return _rootDatePicker.GetTextFromElement().Trim();

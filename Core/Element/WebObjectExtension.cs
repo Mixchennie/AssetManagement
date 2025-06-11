@@ -1,7 +1,8 @@
 using System.Globalization;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using SeleniumPractice.Utils;
+using AssetManagementTest.Utils;
+using AssetManagementTest.Core.Browser;
 
 namespace AssetManagementTest.Core.Element;
 public static class WebObjectExtensions

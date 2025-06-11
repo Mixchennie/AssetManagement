@@ -1,0 +1,25 @@
+{
+  "CreateAdminUser": [
+    {
+      "FirstName": "ThuyTien",
+      "LastName": "Mai",
+      "Email": "admin.user1@test.com",
+      "Gender": "MALE",
+      "DateOfBirth": "1 January 1990",
+      "JoinedDate": "17 June 2024",
+      "Type": "Admin",
+      "Location": "HCM"
+    }
+  ],
+  "CreateStaffUser": [
+    {
+      "FirstName": "StaffTest",
+      "LastName": "UserTwo",
+      "Email": "staff.user2@test.com",
+      "Gender": "FEMALE",
+      "DateOfBirth": "2 February 1995",
+      "JoinedDate": "17 June 2024",
+      "Type": "Staff"
+    }
+  ]
+}

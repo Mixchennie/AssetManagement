@@ -1,6 +1,8 @@
-using SeleniumPractice.Utils;
+using AssetManagementTest.Report;
+using AssetManagementTest.Utils;
+using AssetManagementTest.Core.Browser;
 
-namespace SeleniumPractice.Tests
+namespace AssetManagementTest.Tests
 {
     [SetUpFixture]
     public class Hooks

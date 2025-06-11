@@ -1,4 +1,5 @@
 using System.Globalization;
+using AssetManagementTest.Core.Browser;
 using AssetManagementTest.Core.Element;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;

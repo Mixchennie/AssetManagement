@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace SeleniumPractice.Utils
+namespace AssetManagementTest.Utils
 {
     public static class ConfigurationUtils
     {

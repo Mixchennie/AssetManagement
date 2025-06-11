@@ -1,6 +1,8 @@
-using SeleniumPractice.Utils;
+using AssetManagementTest.Core.Browser;
+using AssetManagementTest.Report;
+using AssetManagementTest.Utils;
 
-namespace SeleniumPractice.Tests
+namespace AssetManagementTest.Tests
 {
     public class BaseTest
     {
@@ -8,7 +10,7 @@ namespace SeleniumPractice.Tests
         public void SetUp()
         {
             TestContext.Progress.WriteLine("Setup: Initializing WebDriver, Maximize Window, and Extent Report.");
-
+ 
             BrowserFactory.InitializeDriver(ConfigurationUtils.GetConfigurationByKey("Browser"));
             DriverUtils.MaximizeWindow();
             DriverUtils.GoToUrl(ConfigurationUtils.GetConfigurationByKey("SearchBookUrl"));

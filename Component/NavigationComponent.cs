@@ -1,7 +1,8 @@
+using AssetManagementTest.Core.Browser;
 using AssetManagementTest.Core.Element;
 using OpenQA.Selenium;
 
-namespace PracticeSelenium.Component;
+namespace AssetManagementTest.Component;
 public class NavigationComponent
 {
     private WebObject _navigationBar = new WebObject(By.XPath("//nav[@class='navigation']"), "NavigationBar");
