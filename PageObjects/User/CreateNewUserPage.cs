@@ -16,9 +16,8 @@ class CreateNewUserPage : BasePage
     private WebObject _firstNameInput = new WebObject(By.Id("firstName"), "FirstNameInput");
     private WebObject _lastNameInput = new WebObject(By.Id("lastName"), "LastNameInput");
     private WebObject _emailInput = new WebObject(By.Id("email"), "EmailInput");
-    private WebObject _dobInput = new WebObject(By.XPath("//label[normalize-space()='Date of Birth']/following::button[1]"), "DOBInput");
-    private WebObject _joinedDateInput = new WebObject(By.XPath("//label[normalize-space()='Joined Date']/following::button[1]"), "JoinedDateInput");
-
+    private WebObject _dobInput = new WebObject(By.Id("dob"), "DOBInput");
+    private WebObject _joinedDateInput = new WebObject(By.Id("joinedDate"), "JoinedDateInput");
     private WebObject _searchInput = new WebObject(
         By.XPath("//button[.//i[contains(@class, 'fa-magnifying-glass')]]/preceding-sibling::input"), "UserSearchInput");
 
