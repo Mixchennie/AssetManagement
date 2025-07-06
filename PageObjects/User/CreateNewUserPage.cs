@@ -40,37 +40,8 @@ class CreateNewUserPage : BasePage
         _searchButton.ClickOnElement();
     }
 
-    public bool IsUserDisplayed(string fullName, string joinedDate, string type)
-    {
-        var rows = _userTableRows.GetElements();
-        DateTime parsed;
-        string joinedDateToCompare = joinedDate;
-        if (DateTime.TryParseExact(joinedDate, "d MMMM yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsed))
-        {
-            joinedDateToCompare = parsed.ToString("yyyy-MM-dd");
-        }
-
-        foreach (var row in rows)
-        {
-            var cols = row.FindElements(By.TagName("td"));
-            if (cols.Count < 5) continue;
-            Console.WriteLine($"[User Row] {string.Join(" | ", cols.Select(x => x.Text.Trim()))}");
-            Console.WriteLine($"[Expected] Full Name: {fullName}, Joined Date: {joinedDateToCompare}, Type: {type}");
-
-            bool match =
-                string.Equals(cols[1].Text.Trim(), fullName.Trim(), StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(cols[3].Text.Trim(), joinedDateToCompare.Trim(), StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(cols[4].Text.Trim(), type.Trim(), StringComparison.OrdinalIgnoreCase);
-
-            if (match) return true;
-        }
-        return false;
-    }
-
-
     public void GoToCreateUserForm()
     {
-        _menuManageUser.ClickOnElement();
         _btnCreateNewUser.ClickOnElement();
     }
 

@@ -6,29 +6,33 @@ using AssetManagementTest.PageObjects;
 using AssetManagementTest.PageObjects.User;
 
 namespace AssetManagementTest.Tests;
+
 public class CreateNewUserPageTest : BaseTest
 {
     private LoginPage _loginPage;
     private CreateNewUserPage _createNewUserPage;
+    private ManageUserPage _manageUserPage;
 
     public CreateNewUserPageTest()
     {
         _loginPage = new LoginPage();
         _createNewUserPage = new CreateNewUserPage();
+        _manageUserPage = new ManageUserPage();
     }
 
     [Test, TestCaseSource(typeof(CreateUserDataModel), nameof(CreateUserDataModel.GetAdminUserData))]
     public void CreateAdminUserTest(CreateUserDataDto userData)
     {
         LoginAsAdmin();
-        _createNewUserPage.GoToCreateUserForm();
+        _manageUserPage.GoToUserManagement();
+        _manageUserPage.GoToCreateUserForm();
         _createNewUserPage.FillUserForm(userData);
         _createNewUserPage.ClickSaveButton();
 
         NotificationHandlerComponent.HandleToastMessage(MessageConstants.CreateNewUserSuccess);
-        _createNewUserPage.SearchUser(userData.FirstName + " " + userData.LastName);
+        _manageUserPage.SearchUserWithWait(userData.FirstName + " " + userData.LastName);
         Assert.IsTrue(
-            _createNewUserPage.IsUserDisplayed(
+            _manageUserPage.IsUserDisplayed(
                 userData.FirstName + " " + userData.LastName,
                 userData.JoinedDate,
                 userData.Type
@@ -41,13 +45,15 @@ public class CreateNewUserPageTest : BaseTest
     public void CreateStaffUserTest(CreateUserDataDto userData)
     {
         LoginAsAdmin();
-        _createNewUserPage.GoToCreateUserForm();
+        _manageUserPage.GoToUserManagement();
+        _manageUserPage.GoToCreateUserForm();
         _createNewUserPage.FillUserForm(userData);
         _createNewUserPage.ClickSaveButton();
+
         NotificationHandlerComponent.HandleToastMessage(MessageConstants.CreateNewUserSuccess);
-        _createNewUserPage.SearchUser(userData.FirstName + " " + userData.LastName);
+        _manageUserPage.SearchUserWithWait(userData.FirstName + " " + userData.LastName);
         Assert.IsTrue(
-            _createNewUserPage.IsUserDisplayed(
+            _manageUserPage.IsUserDisplayed(
                 userData.FirstName + " " + userData.LastName,
                 userData.JoinedDate,
                 userData.Type
@@ -66,4 +72,5 @@ public class CreateNewUserPageTest : BaseTest
         _loginPage.DoLogin(admin.Username, admin.Password);
         _loginPage.VerifyLoginSuccessMessage(MessageConstants.LoginSuccess);
     }
+    
 }

@@ -3,7 +3,7 @@
     {
       "FirstName": "ThuyTien",
       "LastName": "Mai",
-      "Email": "admin.user1@test.com",
+      "Email": "admin.user4@gmail.com",
       "Gender": "MALE",
       "DateOfBirth": "1 January 1990",
       "JoinedDate": "17 June 2024",
@@ -15,7 +15,7 @@
     {
       "FirstName": "StaffTest",
       "LastName": "UserTwo",
-      "Email": "staff.user2@test.com",
+      "Email": "staff.user10@gmail.com",
       "Gender": "FEMALE",
       "DateOfBirth": "2 February 1995",
       "JoinedDate": "17 June 2024",
