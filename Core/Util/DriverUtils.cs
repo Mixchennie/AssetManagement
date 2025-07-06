@@ -1,7 +1,8 @@
 
+using AssetManagementTest.Core.Browser;
 using AventStack.ExtentReports;
 using OpenQA.Selenium;
-using SeleniumPractice.Utils;
+namespace AssetManagementTest.Utils;
 
 public static class DriverUtils
 {
@@ -14,8 +15,8 @@ public static class DriverUtils
     {
         BrowserFactory.GetWebDriver().Navigate().GoToUrl(url);
     }
-    
-    public static string CaptureScreenshot(IWebDriver driver, string className, string testName )
+
+    public static string CaptureScreenshot(IWebDriver driver, string className, string testName)
     {
         ITakesScreenshot screenshotDriver = (ITakesScreenshot)driver;
         Screenshot screenshot = screenshotDriver.GetScreenshot();

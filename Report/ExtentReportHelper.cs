@@ -2,9 +2,11 @@ using AventStack.ExtentReports;
 using NUnit.Framework.Interfaces;
 using AventStack.ExtentReports.Reporter;
 using OpenQA.Selenium;
-using SeleniumPractice.Utils;
+using AssetManagementTest.Utils;
 using AventStack.ExtentReports.Model;
+using AssetManagementTest.Core.Browser;
 
+namespace AssetManagementTest.Report;
 public class ExtentReportHelper
 {
     static AventStack.ExtentReports.ExtentReports _extentManager;

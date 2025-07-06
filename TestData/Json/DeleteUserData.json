@@ -1,0 +1,13 @@
+{
+  "DeleteUserData": [
+    {
+      "FirstName": "YDelete",
+      "LastName": "User",
+      "Email": "deleteuser@gmail000.com",
+      "Gender": "MALE",
+      "DateOfBirth": "2 January 1990",
+      "JoinedDate": "19 June 2024",
+      "Type": "Staff"
+    }
+  ]
+}

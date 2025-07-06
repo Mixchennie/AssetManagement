@@ -6,6 +6,7 @@ using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using WebDriverManager.Helpers;
 
+namespace AssetManagementTest.Core.Browser;
 public static class BrowserFactory
 {
     public static ThreadLocal<IWebDriver> ThreadLocalWebDriver = new ThreadLocal<IWebDriver>();

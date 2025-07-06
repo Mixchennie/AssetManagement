@@ -2,6 +2,8 @@ using AssetManagementTest.Core.Element;
 using AssetManagementTest.PageObjects;
 using OpenQA.Selenium;
 
+namespace AssetManagementTest.PageObjects;
+
 class LoginPage : BasePage
 {
     private WebObject _userNameInput = new WebObject(By.Id("Username"), "UserNameInput");
@@ -43,7 +45,7 @@ class LoginPage : BasePage
     {
         HandleToastMessage(expectedMessage);
     }
-    
+
     public string GetNavigateBarTitleText()
     {
         _navigateBarTitle.WaitForElementToBeVisible();

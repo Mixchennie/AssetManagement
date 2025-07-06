@@ -1,9 +1,11 @@
+using AssetManagementTest.Component;
 using AssetManagementTest.Constants;
 using AssetManagementTest.DataObject;
 using AssetManagementTest.Model;
-using PracticeSelenium.Component;
+using AssetManagementTest.PageObjects;
+using AssetManagementTest.Report;
 
-namespace SeleniumPractice.Tests;
+namespace AssetManagementTest.Tests;
 
 public class LoginPageTest : BaseTest
 {
