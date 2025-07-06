@@ -1,6 +1,8 @@
-using SeleniumPractice.Utils;
+using AssetManagementTest.Report;
+using AssetManagementTest.Utils;
+using AssetManagementTest.Core.Browser;
 
-namespace SeleniumPractice.Tests
+namespace AssetManagementTest.Tests
 {
     [SetUpFixture]
     public class Hooks
@@ -10,6 +12,7 @@ namespace SeleniumPractice.Tests
         {
             TestContext.Progress.WriteLine("OneTimeSetUp: Initializing WebDriver and navigating to URL.");
             ConfigurationUtils.ReadConfiguration("Configurations\\appsettings.json");
+            
             ExtentReportHelper.InitializeReport(Directory.GetCurrentDirectory() + "\\Reports\\TestReport.html"
                 , ConfigurationUtils.GetConfigurationByKey("HostName")
                 , ConfigurationUtils.GetConfigurationByKey("Environment")

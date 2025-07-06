@@ -1,0 +1,32 @@
+{
+  "CredentialAccount": [
+    {
+      "UserName": "admindnuo",
+      "Password": "Admindnuo@010119901"
+    },
+    {
+      "UserName": "staffdnut",
+      "Password": "staffdnut@02011995"
+    }
+  ],
+  "LoginWithInvalidUsername": [
+    {
+        "UserName": "InvalidUsername",
+        "Password": "Admindnuo@010119901"
+    },
+    {
+        "UserName": "InvalidUsername",
+        "Password": "InvalidPassword"
+    }
+  ],
+  "LoginWithInvalidPassword": [
+    {
+      "UserName": "admindnuo",
+      "Password": "InvalidPassword"
+    },
+    {
+      "UserName": "staffdnut",
+      "Password": "InvalidPassword"
+    }
+  ]
+}

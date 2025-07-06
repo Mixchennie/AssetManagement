@@ -1,8 +1,10 @@
 using System.Globalization;
+using AssetManagementTest.Core.Browser;
+using AssetManagementTest.Core.Element;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace PracticeSelenium.Pages.WebPages;
+namespace AssetManagementTest.PageObjects;
 class BasePage
 {
     public BasePage()
@@ -51,7 +53,7 @@ class BasePage
             string title = allTitles[i];
             Assert.That(title,
                 Does.Contain(keyword).IgnoreCase,
-                $"❌ Row {i + 1}: Expected to contain \"{keyword}\" but was \"{title}\"");
+                $"Row {i + 1}: Expected to contain \"{keyword}\" but was \"{title}\"");
         }
     }
 
@@ -71,10 +73,10 @@ class BasePage
             string allCellsText = string.Join("\n", cells.Select((c, i) =>
                 $"- [Row {i + 1}]: \"{c.Text.Trim()}\""));
 
-            string rowInfo = rowIndex >= 0 ? $"❌ Row {rowIndex + 1}" : "❌ Row";
+            string rowInfo = rowIndex >= 0 ? $"Row {rowIndex + 1}" : "Row";
             string message =
                 $"{rowInfo} does not contain keyword: \"{keyword}\"\n" +
-                $"📄 Row content:\n{allCellsText}";
+                $"Row content:\n{allCellsText}";
 
             Assert.Fail(message);
         }
@@ -195,5 +197,39 @@ class BasePage
         var columnCells = new WebObject(By.XPath($"//div[@class='rt-tbody']//div[@class='rt-td'][{columnIndex + 1}]"), "TitleColumn");
 
         return columnCells;
+    }
+
+    public static void HandleToastMessage(string expectedText)
+    {
+        var driver = BrowserFactory.GetWebDriver();
+        By toastLocator = By.XPath("//div[@role='alert']");
+        try
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            IWebElement toast = wait.Until(SeleniumExtras.WaitHelpers
+                .ExpectedConditions.ElementIsVisible(toastLocator));
+
+            string actualText = toast.Text.Trim();
+            if (!actualText.Contains(expectedText))
+            {
+                throw new InvalidOperationException(
+                    $"Toast text did not match. Expected to contain: \"{expectedText}\" but was: \"{actualText}\"");
+            }
+
+            try
+            {
+                By closeButton = By.XPath("//div[@role='alert']//button");
+                IWebElement btn = toast.FindElement(closeButton);
+                btn.Click();
+            }
+            catch (NoSuchElementException)
+            {
+               
+            }
+        }
+        catch (WebDriverTimeoutException)
+        {
+            throw new TimeoutException($"Toast message \"{expectedText}\" did not appear within {10}s.");
+        }
     }
 }
